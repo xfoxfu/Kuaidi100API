@@ -3,7 +3,7 @@ YetAnotherExpressHelper
 
 Just another helper for querying Chinese express status built on [React-Native](http://facebook.github.io/react-native/).
 
-Build on hacker APIs of [Kuaidi100](http://www.kuaidi100.com/).
+Build on hacked APIs of [Kuaidi100](http://www.kuaidi100.com/).
 
 Features
 -----
@@ -22,11 +22,29 @@ Hacked APIs
 
 #### Parameters
 
-In request body `x-www-form-urlencoded`:
+In query string:
 
 |Name|Description                           |
 |----|--------------------------------------|
 |text|Express ID provided by express company|
+
+Example:
+
+```
+POST /autonumber/autoComNum?text=1600887249033 HTTP/1.1
+Origin: http://www.kuaidi100.com
+Accept-Encoding: gzip, deflate
+Host: www.kuaidi100.com
+Accept-Language: zh-CN,zh;q=0.8,en;q=0.6
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36
+Accept: application/json, text/javascript, */*; q=0.01
+Referer: http://www.kuaidi100.com/
+X-Requested-With: XMLHttpRequest
+Content-Type: application/x-www-form-urlencoded
+Connection: close
+Content-Length: 0
+
+```
 
 #### Response
 
@@ -82,12 +100,26 @@ If no express company matched, the "auto" array should be an empty array.
 
 In query string:
 
-|Name   |Explanation                           |
-|-------|--------------------------------------|
-|type   |Express company code                  |
-|postid |Express ID provided by express company|
+|Name    |Explanation                            |
+|--------|---------------------------------------|
+|type    |Express company code                   |
+|postid  |Express ID provided by express company |
+|valicode|Meaningless, but to keep it null string|
 
-### Response
+Example:
+
+```
+GET /query?type=yunda&postid=1600887249033&valicode= HTTP/1.1
+Accept-Encoding: gzip, deflate, sdch
+Host: www.kuaidi100.com
+Accept-Language: zh-CN,zh;q=0.8,en;q=0.6
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36
+Accept: */*
+Referer: http://www.kuaidi100.com/
+X-Requested-With: XMLHttpRequest
+```
+
+#### Response
 
 Example:
 
