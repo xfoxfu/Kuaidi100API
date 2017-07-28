@@ -21,9 +21,9 @@ APIs
 
 In query string:
 
-|Name|Description                           |
-|----|--------------------------------------|
-|text|Express ID provided by express company|
+| Name | Description                            |
+| ---- | -------------------------------------- |
+| text | Express ID provided by express company |
 
 Example:
 
@@ -74,16 +74,16 @@ Example:
 
 Explanation:
 
-|Path            |Description                           |
-|----------------|--------------------------------------|
-|comCode         |Unknown                               |
-|num             |Express ID provided by express company|
-|auto            |*Array* Auto detected express company |
-|auto[].comCode  |Express company code                  |
-|auto[].id       |Unknown                               |
-|auto[].noCound  |Unknown                               |
-|auto[].noPre    |Unknown                               |
-|auto[].startTime|Unknown                               |
+| Path             | Description                            |
+| ---------------- | -------------------------------------- |
+| comCode          | Unknown                                |
+| num              | Express ID provided by express company |
+| auto             | *Array* Auto detected express company  |
+| auto[].comCode   | Express company code                   |
+| auto[].id        | Unknown                                |
+| auto[].noCound   | Unknown                                |
+| auto[].noPre     | Unknown                                |
+| auto[].startTime | Unknown                                |
 
 Notes:
 
@@ -97,11 +97,11 @@ If no express company matched, the "auto" array should be an empty array.
 
 In query string:
 
-|Name    |Explanation                            |
-|--------|---------------------------------------|
-|type    |Express company code                   |
-|postid  |Express ID provided by express company |
-|valicode|Meaningless, but to keep it null string|
+| Name     | Explanation                             |
+| -------- | --------------------------------------- |
+| type     | Express company code                    |
+| postid   | Express ID provided by express company  |
+| valicode | Meaningless, but to keep it null string |
 
 Example:
 
@@ -157,33 +157,33 @@ Error Example:
 
 Explanation:
 
-|Path            |Description                           |
-|----------------|--------------------------------------|
-|message         |API query result status message       |
-|nu              |Express ID provided by express company|
-|ischeck         |Meaningless                           |
-|com             |Express company code                  |
-|status          |API query result status               |
-|condition       |Meaningless                           |
-|state           |Express status, see notes             |
-|data            |*Array* Express status data           |
-|data[].time     |Express status creation time          |
-|data[].context  |Express status context                |
-|data[].ftime    |Express status creation time          |
+| Path           | Description                            |
+| -------------- | -------------------------------------- |
+| message        | API query result status message        |
+| nu             | Express ID provided by express company |
+| ischeck        | Meaningless                            |
+| com            | Express company code                   |
+| status         | API query result status                |
+| condition      | Meaningless                            |
+| state          | Express status, see notes              |
+| data           | *Array* Express status data            |
+| data[].time    | Express status creation time           |
+| data[].context | Express status context                 |
+| data[].ftime   | Express status creation time           |
 
 Notes:
 
 There are 7 possible values of "state":
 
-|Value|Name         |Explanation                                                                            |
-|-----|-------------|---------------------------------------------------------------------------------------|
-|0    |Transporting |Express is being transported                                                           |
-|1    |Accepted     |Express is accepted by the express company                                             |
-|2    |Trouble      |Express is in knotty problem                                                           |
-|3    |Delivered    |Express is successfully delivered                                                      |
-|4    |Rejected     |Express is rejected by the receiver and has been successfully redelivered to the sender|
-|5    |Delivering   |Express is being delivered                                                             |
-|6    |Rejecting    |Express is rejected by the receiver and is being redelivered to the sender             |
+| Value | Name         | Explanation                              |
+| ----- | ------------ | ---------------------------------------- |
+| 0     | Transporting | Express is being transported             |
+| 1     | Accepted     | Express is accepted by the express company |
+| 2     | Trouble      | Express is in knotty problem             |
+| 3     | Delivered    | Express is successfully delivered        |
+| 4     | Rejected     | Express is rejected by the receiver and has been successfully redelivered to the sender |
+| 5     | Delivering   | Express is being delivered               |
+| 6     | Rejecting    | Express is rejected by the receiver and is being redelivered to the sender |
 
 ### Express Company Codes
 
@@ -195,4 +195,34 @@ JavaScript.
 
 Then remove `var jsoncom=` and replace `};` to `}` and `'` to `"` to convert it to json.
 
-Returns **int** error_size and **array** of (**strings** cid, id, companyname, shortname, tel, url, code, comurl, isavailable, promptinfo,					testnu, freg, freginfo, telcomplaintnum, queryurl, serversite and **number** hasvali) company.
+Returns **int**  and **array** of (**strings** , , , , , , , , , ,					, , , , ,  and **number** ) company.
+
+Explanation:
+
+| Path                      | Description                          |
+| ------------------------- | ------------------------------------ |
+| error_size                | Unknown                              |
+| company                   | Express companies                    |
+| company[].cid             | Meaningless                          |
+| company[].id              | Express company id                   |
+| company[].companyname     | Express company name                 |
+| company[].shortname       | short for express company name       |
+| company[].tel             | hotline of express company           |
+| company[].url             | Meaningless                          |
+| company[].code            | *comCode* of the company             |
+| company[].comurl          | website of express company           |
+| company[].isavailable     | **string** `0` when available        |
+| company[].promptinfo      | Unknown                              |
+| company[].testnu          | example package number               |
+| company[].freg            | RegExp of a valid package number     |
+| company[].freginfo        | package number description           |
+| company[].telcomplaintnum | complaint hotline of express company |
+| company[].queryurl        | official express query url           |
+| company[].serversite      | delivery sites list url              |
+| company[].hasvali         | **int** Unknown                      |
+
+Example:
+
+```javascript
+var jsoncom={'company':[{'cid':'5','id':'1','companyname':'申通快递','shortname':'申通','tel':'95543','url':'st','code':'shentong','hasvali':0,'comurl':'http://www.sto.cn','isavailable':'0','promptinfo':'系统升级，请到申通官网查询','testnu':'229855869255','freg':'^[0-9]{12,13}$','freginfo':'申通单号由12位数字组成，常见以268*、368*、58*等开头','telcomplaintnum':'95543','queryurl':'http://www.sto.cn/web%20select.asp','serversite':'http://www.kuaidi100.com/network/province_5.htm'}],'error_size':-1};
+```
