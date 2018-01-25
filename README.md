@@ -1,7 +1,7 @@
 Kuaidi100API
 =====
 
-API analyzed from <http://www.kuaidi100.com>. Use at your own risk!
+API analyzed from <http://www.kuaidi100.com>. Use at your own risk! Update on Jan.25th,2018
 
 Licensed under GPL 3.0.
 
@@ -101,12 +101,11 @@ In query string:
 | -------- | --------------------------------------- |
 | type     | Express company code                    |
 | postid   | Express ID provided by express company  |
-| valicode | Meaningless, but to keep it null string |
 
 Example:
 
 ```
-GET /query?type=yunda&postid=1600887249033&valicode= HTTP/1.1
+GET /query?type=yunda&postid=1600887249033 HTTP/1.1
 Accept-Encoding: gzip, deflate, sdch
 Host: www.kuaidi100.com
 Accept-Language: zh-CN,zh;q=0.8,en;q=0.6
@@ -226,3 +225,7 @@ Example:
 ```javascript
 var jsoncom={'company':[{'cid':'5','id':'1','companyname':'申通快递','shortname':'申通','tel':'95543','url':'st','code':'shentong','hasvali':0,'comurl':'http://www.sto.cn','isavailable':'0','promptinfo':'系统升级，请到申通官网查询','testnu':'229855869255','freg':'^[0-9]{12,13}$','freginfo':'申通单号由12位数字组成，常见以268*、368*、58*等开头','telcomplaintnum':'95543','queryurl':'http://www.sto.cn/web%20select.asp','serversite':'http://www.kuaidi100.com/network/province_5.htm'}],'error_size':-1};
 ```
+
+#### Caution
+
+顺丰快递的查询会被跳转到官网，请使用时注意。
