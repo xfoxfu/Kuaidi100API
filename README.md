@@ -1,7 +1,7 @@
 Kuaidi100API
 =====
 
-API analyzed from <http://www.kuaidi100.com>. Use at your own risk! Update on Jan.25th,2018
+API analyzed from <http://www.kuaidi100.com>. Use at your own risk! Update on Jan.25th, 2018
 
 Licensed under GPL 3.0.
 
